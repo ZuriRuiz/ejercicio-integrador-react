@@ -9,33 +9,39 @@ import CardP from "./CardP";
 
 const Section = () => {
   
-  const [personajes, setPersonajes] = useState([]);
+  const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
     fetch("https://rickandmortyapi.com/api/character")
-    .then((res) => res.json())
-    .then((data) => setPersonajes(data));
-    
-
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+        setCharacters(data.results);
+      });
+  
   }, []);
 
     return (
         <React.Fragment>
+         
         <CssBaseline />
-        <Container maxWidth="200">
-          <Box sx={{ bgcolor: '#dddddd', height: '100vh' }} />
-          {personajes.map ((personaje) =>
+        <Container sx= {{display: "flex", flexWrap: "wrap", justifyContent: "center", ml: 10, mt: 8, mb: 7, bgcolor: "#d3d3d3"}}>
+           
+          {characters.map ((character, index) =>
           
-          <CardP>
-            imagen={personaje.img}
-            nombre={personaje.name}
-            especie={personaje.species}
-            genero={personaje.gender}
+          <CardP
+          image={character.image}
+          name={character.name}
+          species={character.species}
+          gender={character.gender}
+        
+          />
+          
 
-          </CardP>
           
-          )}
-        </Container>
+        )}
+        
+       </Container>
 
         
       </React.Fragment>
