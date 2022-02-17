@@ -1,25 +1,24 @@
 import * as React from 'react';
 import {useState, useEffect } from "react";
-import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
 import CardP from "./CardP";
 
 
 
-const Section = () => {
+const Section = ({ busqueda }) => {
   
   const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
-    fetch("https://rickandmortyapi.com/api/character")
+    fetch(`https://rickandmortyapi.com/api/character/?name=${busqueda}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data)
         setCharacters(data.results);
       });
   
-  }, []);
+  }, [busqueda]);
 
     return (
         <React.Fragment>

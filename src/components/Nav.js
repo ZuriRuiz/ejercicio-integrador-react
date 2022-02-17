@@ -9,7 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 const Nav = () => {
      return (
         <Box sx={{ flexGrow: 1}}>
-        <AppBar sx={{bgcolor: "#000000", position:"static"}} >
+        <AppBar sx={{bgcolor: "black", position:"static"}} >
         <Toolbar>
         <IconButton
             size="large"
@@ -20,7 +20,7 @@ const Nav = () => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1, color:"#0d880b"}}>
             Rick and Morty Api
           </Typography>
         </Toolbar>
